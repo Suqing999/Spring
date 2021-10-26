@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--注册bean-->
+    <bean id="userService" class="com.baidu.service.impl.UserServiceImpl"></bean>
+    <bean id="log" class="com.baidu.log.MyLog"></bean>
+
+    <bean id="myaspect" class="com.baidu.myaspectj.MyAspect"/>
+    <aop:aspectj-autoproxy/>
+
+
+
+    <!--配置AOP-->
+   <!-- <aop:config>
+        <aop:pointcut id="poi" expression="execution(* com.baidu.service.impl.UserServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="log" pointcut-ref="poi"/>
+    </aop:config>-->
+
+    <!--自定义-->
+ <!--   <bean id="diy" class="com.baidu.diypoint.DiyPointCut"></bean>-->
+
+<!--    <aop:config>
+        <aop:aspect id="aspect1" ref="diy">
+            &lt;!&ndash;切入点&ndash;&gt;
+            <aop:pointcut id="poi" expression="execution(* com.baidu.service.impl.UserServiceImpl.*(..))"/>
+            &lt;!&ndash;往哪里切&ndash;&gt;
+            <aop:before method="before" pointcut-ref="poi"/>
+            <aop:after method="after" pointcut-ref="poi"/>
+        </aop:aspect>
+    </aop:config>-->
+
+
+
+</beans>

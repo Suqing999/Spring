@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.baidu.pojo.Address">
+        <property name="addressName" value="北京"/>
+    </bean>
+
+
+    <bean id="student" class="com.baidu.pojo.Student">
+        <!--普通值注入-->
+        <property name="name" value="张三"/>
+
+        <!--引用他类-->
+        <property name="address" ref="address"/>
+
+        <!--数组-->
+        <property name="books">
+            <array value-type="java.lang.String">
+                <value>红梅花开</value>
+                <value>新时代</value>
+                <value>三国</value>
+            </array>
+        </property>
+
+        <!--list集合-->
+        <property name="hobbys">
+            <list>
+                <value>骑车</value>
+                <value>打球</value>
+            </list>
+        </property>
+
+        <!--map集合-->
+        <property name="card">
+            <map>
+                <entry key="张三" value="1234"/>
+            </map>
+        </property>
+
+
+        <!--set集合-->
+        <property name="games">
+            <set>
+                <value>GTA3</value>
+                <value>GTA3</value>
+                <value>GTA2</value>
+                <value>GTA4</value>
+                <value>GTA1</value>
+            </set>
+        </property>
+
+        <!--空值注入-->
+        <property name="wife">
+            <null></null>
+        </property>
+
+        <!--配置文件-->
+        <property name="info">
+            <props>
+                <prop key="idcard">磁卡</prop>
+            </props>
+        </property>
+
+
+
+
+
+
+
+
+    </bean>
+</beans>
